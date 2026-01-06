@@ -3,6 +3,7 @@ from pydantic import BaseModel
 import numpy as np
 from schema.user_input import InputData
 from model.predict import predict_output, MODEL_VERSION
+from fastapi.responses import JSONResponse
 
 
 app = FastAPI()
@@ -42,7 +43,7 @@ def predict(data: InputData):
         else:
             result = "The patient does not have Diabetes"
         
-        return JSONResponse(statue_code=200, content={"prediction": result})
+        return JSONResponse(status_code=200, content={"prediction": result})
     except Exception as e:
         return JSONResponse(status_code=500, content=str(e))
 
