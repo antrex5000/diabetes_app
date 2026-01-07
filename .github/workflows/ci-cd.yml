@@ -9,7 +9,7 @@ on:
 
 permissions:
   id-token: write
-  contents: README
+  contents: read
 
 jobs:
   integrate:
